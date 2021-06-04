@@ -1,0 +1,42 @@
+﻿<Page
+    x:Class="Selfie.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Selfie"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Loaded="Page_Loaded"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <RelativePanel>
+        <Grid x:Name="camera">
+            <CaptureElement x:Name="preview" Stretch="Uniform"/>
+            <Image x:Name="playback" Stretch="Uniform"/>
+            <StackPanel Orientation="Vertical">
+                <Button x:Name="btnCapture" Click="btnCapture_Click">
+                <Viewbox MaxWidth="40" MaxHeight="40">
+                    <SymbolIcon Symbol="Camera"/>
+                </Viewbox>
+                </Button>
+                <Button x:Name="btnPlay" Click="btnPlay_Click">
+                    <Viewbox MaxWidth="40" MaxHeight="40">
+                        <SymbolIcon Symbol="Play"/>
+                    </Viewbox>
+                </Button>
+                <Button x:Name="btnStop" Click="btnStop_Click">
+                    <Viewbox MaxWidth="40" MaxHeight="40">
+                        <SymbolIcon Symbol="Stop"/>
+                    </Viewbox>
+                </Button>
+                <Button x:Name="btnToggle" Click="btnToggle_Click">
+                    <Viewbox MaxWidth="40" MaxHeight="40">
+                        <SymbolIcon Name="icon" Symbol="Play"/>
+                    </Viewbox>
+                </Button>
+                <Slider x:Name="slider" Orientation="Vertical" ValueChanged="slider_ValueChanged" Minimum="0" Maximum="1" StepFrequency="0.01" Value="0.2" Height="100" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        <StackPanel x:Name="pics" Orientation="Horizontal" RelativePanel.AlignTopWith="camera"/>
+    </RelativePanel>
+</Page>
